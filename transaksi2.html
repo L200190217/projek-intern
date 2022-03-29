@@ -102,7 +102,7 @@
                             </thead>
 
 
-                            <div class="table100-body js-pscroll">
+                            <div class="table100-body js-pscroll" id="checkbox-wrap">
                                 <tbody>
                                     <tr class="row100 body">
                                         <td class="cell100 column0"><input class="form-check-input ml-3" type="checkbox"
@@ -516,30 +516,18 @@
     <!-- hilangkan tombol hapus -->
 
     <script>
-        let getIdCheckbox = document.getElementById("vehicle3")
-        let form = document.getElementById("vehicle2");
-        changevehicle1 = (obj) => document.getElementById(obj).classList.toggle(obj)
-
-        getIdCheckbox.addEventListener("click", function () {
-            changevehicle1("hilang")
-        })
-
-        form.addEventListener("click", function () {
-            changevehicle1("hilang")
-        })
-
-        let i = 1
-        while (i < 4) {
-            document.getElementById("vehicle" + i).addEventListener("click", function () {
-                changevehicle1("hilang")
-            })
-            console.log("vehicle" + i);
-            i++
-        }
-        let input = document.getElementById("vehicle2")
-        input.addEventListener("click", function () {
-            input.classList.toggle("hilang")
-        })
+        // checkbox
+        $('input[type="checkbox"]').click(function () {
+            let hilang = document.getElementById('hilang')
+            if ($(this).prop("checked") == true) {
+                console.log("Checkbox is checked.");
+                hilang.classList.add('hilang');
+            }
+            else if ($(this).prop("checked") == false) {
+                hilang.classList.remove('hilang');
+                console.log("Checkbox is unchecked.");
+            }
+        });
     </script>
 
 
