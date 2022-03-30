@@ -483,6 +483,9 @@
     <script type="text/javascript">
         function checkAll(ele) {
             var checkboxes = document.getElementsByTagName('input');
+            let check = document.querySelectorAll('input[type=checkbox]');
+            console.log(check);
+            // console.log(checkboxes);/
             if (ele.checked) {
                 for (var i = 0; i < checkboxes.length; i++) {
                     if (checkboxes[i].type == 'checkbox') {
@@ -507,7 +510,10 @@
     <script src="js/dataTables.bootstrap.js"></script>
     <script>
         $(document).ready(function () {
-            $('#dataTables-example').dataTable();
+            $('#dataTables-example').dataTable({
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+            });
+
         });
     </script>
     <script src="assets/js/anchor.min.js"></script>
